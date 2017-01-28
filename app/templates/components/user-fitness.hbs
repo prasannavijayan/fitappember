@@ -1,0 +1,13 @@
+<hr>
+<h2>Fitness DataSources from Google Fit</h2>
+<br>
+{{#each userData.userDataSource as |datasource|}}
+	{{datasource.dataStreamId}}
+{{/each}}
+
+<br><br>
+<h2>Fitness User Session | Sleep | Walk</h2>
+<br>
+{{#each userData.userSession as |dataset|}}
+	{{dataset.name}} | {{dataset.endTimeMillis}} | {{date-convertor time=dataset.startTimeMillis}} - {{date-convertor time=dataset.endTimeMillis}} <br>
+{{/each}}

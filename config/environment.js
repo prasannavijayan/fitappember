@@ -20,8 +20,25 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    torii: {
+      // a 'session' property will be injected on routes and controllers
+      sessionServiceName: 'session',
+      providers: {
+        'google-oauth2-bearer': {
+          apiKey:      '42660044228-bsnkds94qscj1uhfvehjrg08iblc8nvi.apps.googleusercontent.com',
+          redirectUri: 'http://localhost:4200/oauth2callback', // default is the current URL
+          scope: "https://www.googleapis.com/auth/fitness.activity.read email"
+        }
+      }
     }
   };
+
+  ENV['ember-simple-auth'] = {
+    authenticationRoute: 'index',
+    routeAfterAuthentication: "validate"
+  }
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
