@@ -27,8 +27,8 @@ module.exports = function(environment) {
       sessionServiceName: 'session',
       providers: {
         'google-oauth2-bearer': {
-          apiKey:      '42660044228-bsnkds94qscj1uhfvehjrg08iblc8nvi.apps.googleusercontent.com',
-          redirectUri: 'http://localhost:4200/oauth2callback', // default is the current URL
+          apiKey:      process.env.OAUTH_CLIENT_ID,
+          redirectUri: process.env.OAUTH_CALLBACK, // default is the current URL
           scope: "https://www.googleapis.com/auth/fitness.activity.read email"
         }
       }
